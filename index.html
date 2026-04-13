@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная.ИГУ им. Касыма Тыныстанова</title> 
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body> 
+<header>
+    <img src="/img/logo.png" alt="Логотип" class="logo">
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Абитуриентам</a></li>
+            <li><a href="speciality.html">Специальности</a></li> 
+            <li><a href="#">Новости</a></li> 
+            <li><a href="#">Дополнительно</a></li>
+        </ul>
+    </nav>
+</header>
+ 
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Образование начинается здесь.</h1>
+        <p>Колледж ИГУ имени Касыма Тыныстанова предоставляет качественное образование и готовит специалированных специалистов.</p>
+        
+        <div class="statistics">
+            <h2>С нами уже.</h2>  
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>Студенты:</h4>
+                    <p class="stat-number">1300</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Специальности:</h4>
+                    <p class="stat-number">17</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Выпустили студентов:</h4>
+                    <p class="stat-number">67</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="contacts-info">
+        <h3>Контакты</h3>
+        <div class="contact-block">
+            <h4>Адрес:</h4>
+            <p>Город Каракол, улица Абдрахманова, 67</p>
+        </div>
+        <div class="contact-block">
+            <h4>Свяжитесь с нами:</h4>
+            <nav class="contact-links">
+                <ul>
+                    <li><a href="#">Telegram</a></li>
+                    <li><a href="#">Whatsapp</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section> 
+ 
+<section class="students">
+  <h1>Впечатление наших выпускников</h1>
+  <p>Истории наших выпускников после трудоустройства:</p>
+
+  <!-- Карточка 1 — фото слева -->
+  <div class="review">
+    <div class="photo-frame">
+      <img src="/img/дуров.webp" alt="Дуров">
+    
+    </div>
+    <div class="quote-frame">
+      <div class="quote-emojis">
+        <span class="qe qe-tl">⭐</span>
+        <span class="qe qe-tc">💬</span>
+        <span class="qe qe-tr">🏆</span>
+        <span class="qe qe-bl">💫</span>
+        <span class="qe qe-bc">🎓</span>
+        <span class="qe qe-br">📚</span>
+      </div>
+      <blockquote>
+        Люблю этот колледж — здесь я понял, как строить продукты, которыми пользуются миллионы.
+        <cite>Павел Дуров — Основатель Telegram</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- Карточка 2 — фото справа -->
+  <div class="review reverse">
+    <div class="photo-frame">
+      <img src="img/Габен.webp" alt="Габен">
+    </div>
+    <div class="quote-frame">
+      <div class="quote-emojis">
+        <span class="qe qe-tl">🎮</span>
+        <span class="qe qe-tc">👾</span>
+        <span class="qe qe-tr">🕹️</span>
+        <span class="qe qe-bl">🌟</span>
+        <span class="qe qe-bc">💎</span>
+        <span class="qe qe-br">🏅</span>
+      </div>
+      <blockquote>
+        Лучшее образование, которое я получил. Преподаватели дали мне базу, которую не найти в книгах.
+        <cite>Гэбен — Президент Valve</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- Карточка 3 — фото слева -->
+  <div class="review">
+   
+    </div>
+    <div class="quote-frame">
+      <div class="quote-emojis">
+        <span class="qe qe-tl">🦸‍♂️</span>
+        <span class="qe qe-tc">🌍</span>
+        <span class="qe qe-tr">🤝</span>
+        <span class="qe qe-bl">❤️</span>
+        <span class="qe qe-bc">💬</span>
+        <span class="qe qe-br">👥</span>
+      </div>
+      <blockquote>
+        Именно здесь я научился думать о пользователях. Этот навык я применяю каждый день в Meta.
+        <cite>Марк Цукерберг — CEO Meta</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- СЕКЦИЯ: ФОРМА ЗАЯВКИ -->
+<section class="application-section" id="application">
+  <div class="application-container">
+    <div class="application-header">
+      <h1>Остались вопросы?</h1>
+      <p>Оставьте заявку — мы свяжемся с вами в течение одного рабочего дня и ответим на все интересующие вопросы.</p>
+    </div>
+ 
+    <form class="application-form" id="applicationForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Ваше имя <span class="required">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Номер телефона <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+996 700 000 000" required>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label for="email">Электронная почта <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+      </div>
+ 
+      <div class="form-group">
+        <label for="specialty">Интересующая специальность</label>
+        <select id="specialty" name="specialty">
+          <option value="" disabled selected>Выберите специальность</option>
+          <option value="programming">Программирование</option>
+          <option value="accounting">Бухгалтерский учёт</option>
+          <option value="law">Право</option>
+          <option value="medicine">Сестринское дело</option>
+          <option value="other">Другое</option>
+        </select>
+      </div>
+ 
+      <div class="form-group">
+        <label for="subject">Тема обращения</label>
+        <input type="text" id="subject" name="subject" placeholder="Напр.: вопрос о поступлении">
+      </div>
+ 
+      <div class="form-group">
+        <label for="message">Ваше сообщение <span class="required">*</span></label>
+        <textarea id="message" name="message" rows="5" placeholder="Опишите ваш вопрос подробнее..." required></textarea>
+      </div>
+ 
+      <div class="form-footer">
+        <p class="form-note">* — обязательные поля. Данные отправляются на почту приёмной комиссии.</p>
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Отправить заявку</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </div>
+    </form>
+ 
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">✓</div>
+      <h3>Заявка отправлена!</h3>
+      <p>Мы получили ваше сообщение и свяжемся с вами в ближайшее время.</p>
+    </div>
+  </div>
+</section>
+ 
+ 
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/img/logo.png" alt="Логотип" class="footer-logo">
+      <p class="footer-tagline">Колледж ИГУ им. Касыма Тыныстанова</p>
+      <p class="footer-address">г. Каракол, ул. Абдрахманова, 67</p>
+    </div>
+    <div class="footer-links">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="#">Абитуриентам</a></li>
+        <li><a href="#">Специальности</a></li>
+        <li><a href="#">Новости</a></li>
+        <li><a href="#">Дополнительно</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="#">Telegram</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Подать заявку</h4>
+      <ul>
+        <li><a href="#application">Форма заявки</a></li>
+        <li><a href="#">Документы для поступления</a></li>
+        <li><a href="#">Расписание приёма</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Колледж ИГУ им. Касыма Тыныстанова. Все права защищены.</p>
+  </div>
+</footer>
+ 
+<script>
+  const form = document.getElementById('applicationForm');
+  const successMessage = document.getElementById('successMessage');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.classList.add('loading');
+    btn.querySelector('.btn-text').textContent = 'Отправляем...';
+    setTimeout(() => {
+      form.style.display = 'none';
+      successMessage.style.display = 'flex';
+    }, 1500);
+  });
+</script>
+ 
+</body>
+</html> 
