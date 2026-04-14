@@ -909,3 +909,681 @@ footer {
     border: 1px solid rgba(0, 113, 227, 0.3);
 } 
 
+
+/* =============================================
+   NEWS.CSS — дополнение к style.css
+   Страница новостей + Админ панель
+   ============================================= */
+
+/* Active nav link */
+.nav-active {
+    color: #0056b3 !important;
+    font-weight: 600 !important;
+}
+
+/* ── СТРАНИЦА НОВОСТЕЙ ── */
+.news-page {
+    padding: 140px 50px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.news-page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.news-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0056b3;
+    margin: 0 0 12px 0;
+}
+
+.news-page-header h1 {
+    font-family: 'Prata', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.news-subtitle {
+    font-size: 1.1rem;
+    color: #86868b;
+    margin: 0;
+}
+
+/* ── ФИЛЬТРЫ ── */
+.news-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555;
+    background: rgba(255,255,255,0.6);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-radius: 50px;
+    padding: 8px 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.filter-btn:hover {
+    background: rgba(255,255,255,0.9);
+    border-color: rgba(0,86,179,0.2);
+    color: #0056b3;
+}
+
+.filter-btn.active {
+    background: #0056b3;
+    border-color: #0056b3;
+    color: #fff;
+}
+
+/* ── СЕТКА НОВОСТЕЙ ── */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ── КАРТОЧКА НОВОСТИ ── */
+.news-card {
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    animation: cardIn 0.4s ease both;
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 20px 50px rgba(0,86,179,0.12);
+    border-color: rgba(0,86,179,0.15);
+}
+
+/* Медиа превью в карточке */
+.card-media {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #eef2f7, #dce6f5);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .card-media img {
+    transform: scale(1.04);
+}
+
+.card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-media-placeholder {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+/* Тело карточки */
+.card-body {
+    padding: 24px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0056b3;
+    background: rgba(0,86,179,0.08);
+    padding: 3px 10px;
+    border-radius: 50px;
+}
+
+.card-date {
+    font-size: 0.78rem;
+    color: #aaa;
+}
+
+.card-title {
+    font-family: 'Prata', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.card-excerpt {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box; 
+
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-read-more {
+    font-size: 0.82rem;
+    color: #0056b3;
+    font-weight: 500;
+    margin-top: auto;
+    padding-top: 4px;
+}
+
+/* ── ПУСТОЕ СОСТОЯНИЕ ── */
+.news-empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: #aaa;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.news-empty p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* ── МОДАЛЬНЫЕ ОКНА ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-card {
+    /* ... ваши остальные стили (background, radius и т.д.) ... */
+    
+    overflow-y: auto;
+
+    /* 1. Современный стандарт (Firefox 64+, Chrome 121+, Edge 121+) */
+    scrollbar-width: none;
+
+    /* 2. Для старых версий Internet Explorer и Edge */
+    -ms-overflow-style: none;
+}
+
+/* 3. Для Safari (всех версий), iOS и старых Chrome < 121 */
+/* Это отдельный блок, он ОБЯЗАТЕЛЕН для Safari */
+.modal-card::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+/* 3. Для Safari, старых Chrome и браузеров на движке WebKit */
+.modal-card::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-card::-webkit-scrollbar { display: none; }
+
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.06);
+    color: #555;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: rgba(0,0,0,0.12);
+}
+
+/* Медиа в модальном окне */
+.modal-media {
+    width: 100%;
+    max-height: 380px;
+    overflow: hidden;
+    border-radius: 28px 28px 0 0;
+    background: linear-gradient(135deg, #eef2f7, #dce6f5);
+}
+
+.modal-media:empty {
+    display: none;
+}
+
+.modal-media img {
+    width: 100%;
+    height: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-media video {
+    width: 100%;
+    max-height: 380px;
+    display: block;
+}
+
+/* Тело модального окна */
+.modal-body {
+    padding: 32px 36px 40px;
+}
+
+.modal-category {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0056b3;
+    background: rgba(0,86,179,0.08);
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.modal-date {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+.modal-title {
+    font-family: 'Prata', serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 16px 0 20px 0;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.modal-text {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.75;
+    white-space: pre-wrap;
+}
+
+/* ── ФОРМА ДОБАВЛЕНИЯ ── */
+.modal-form-card {
+    max-width: 500px; 
+    max-height: 500px;
+}
+
+.admin-form-title {
+    font-family: 'Prata', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 28px 0;
+    padding: 32px 36px 0;
+}
+
+.admin-form {
+    padding: 0 36px 36px;
+}
+
+.admin-form .form-group {
+    margin-bottom: 20px;
+}
+
+/* Upload area */
+.media-upload-area {
+    border: 2px dashed #d9e3f0;
+    border-radius: 14px;
+    transition: border-color 0.25s, background 0.25s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.media-upload-area:hover,
+.media-upload-area.drag-over {
+    border-color: #0056b3;
+    background: rgba(0,86,179,0.03);
+}
+
+.upload-placeholder {
+    padding: 30px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.upload-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.upload-placeholder p {
+    margin: 0 0 4px 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.upload-placeholder small {
+    color: #aaa;
+    font-size: 0.78rem;
+}
+
+.media-preview {
+    position: relative;
+}
+
+.media-preview img,
+.media-preview video {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.media-preview-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background 0.2s;
+}
+
+.media-preview-remove:hover {
+    background: rgba(220,30,30,0.75);
+}
+
+/* Кнопки формы */
+.admin-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    gap: 12px;
+}
+
+.admin-delete-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: #cc2200;
+    background: none;
+    border: 1.5px solid rgba(204,34,0,0.25);
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-delete-btn:hover {
+    background: rgba(204,34,0,0.06);
+    border-color: #cc2200;
+}
+
+/* ── КНОПКА РЕДАКТИРОВАНИЯ НА КАРТОЧКЕ ── */
+.card-edit-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+    z-index: 5;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.news-card:hover .card-edit-btn {
+    opacity: 1;
+}
+
+.card-edit-btn:hover {
+    background: #fff;
+}
+
+/* Карточка-обёртка должна иметь position:relative */
+.news-card {
+    position: relative;
+}
+
+/* ── FAB КНОПКА ДОБАВЛЕНИЯ ── */
+.admin-fab {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    z-index: 1500;
+}
+
+.fab-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #0056b3;
+    color: #fff;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 8px 28px rgba(0,86,179,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.fab-btn:hover {
+    background: #003a82;
+    transform: scale(1.08);
+    box-shadow: 0 12px 36px rgba(0,86,179,0.45);
+}
+
+/* ── ТОСТ УВЕДОМЛЕНИЕ ── */
+.toast {
+    position: fixed;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 0.88rem;
+    padding: 12px 24px;
+    border-radius: 50px;
+    z-index: 3000;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ── КАТЕГОРИИ label ── */
+.category-label-announcement { color: #0071e3; background: rgba(0,113,227,0.08); }
+.category-label-achievement   { color: #1a7f37; background: rgba(26,127,55,0.08); }
+.category-label-event         { color: #9b59b6; background: rgba(155,89,182,0.08); }
+
+/* =============================================
+   RESPONSIVE — НОВОСТИ
+   ============================================= */
+
+@media (max-width: 1024px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .news-page {
+        padding: 120px 30px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-page {
+        padding: 120px 20px 60px;
+    }
+
+    .news-page-header h1 {
+        font-size: 2.8rem;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card-media {
+        height: 180px;
+    }
+
+    .modal-body {
+        padding: 24px 22px 32px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .admin-form {
+        padding: 0 22px 28px;
+    }
+
+    .admin-form-title {
+        padding: 24px 22px 0;
+        font-size: 1.3rem;
+    }
+
+    .admin-fab {
+        bottom: 24px;
+        right: 24px;
+    }
+
+    .admin-form-footer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .admin-delete-btn,
+    .admin-form-footer .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .news-page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .news-filters {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 7px 16px;
+    }
+
+    .modal-card {
+        border-radius: 20px;
+    }
+}
