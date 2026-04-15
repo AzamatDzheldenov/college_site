@@ -1,1589 +1,676 @@
-/* 1. Настройка шрифта и сброс отступов */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f5f5f7 100%); /* Мягкий градиент вместо плоского цвета */
-    color: #1d1d1f; /* Фирменный цвет текста Apple */
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для Mac/iOS */
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* 2. Единый контейнер-шапка */
-header {
-  border-radius: 25px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-  
-  padding: 10px 50px; 
-  box-sizing: border-box; 
-
-  background: rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(10px); 
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-/* 3. Логотип */
-.logo {
-  height: 60px;
-  width: auto;
-}
-
-/* 4. Навигация */
-.navbar ul {
-  display: flex; 
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.navbar ul li a:hover {
-  color: #0056b3;
-}
-
-/* 5. HERO SECTION */
-.hero-section {
-  margin-top: 100px;
-  padding: 60px 50px;
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  min-height: 600px;
-  box-sizing: border-box;
-}
-
-.hero-content {
-  flex: 1;
-  max-width: 600px;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin: 0 0 20px 0;
-  color: #1a1a1a;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-
-/* 6. СТАТИСТИКА */
-.statistics {
-  margin-top: 40px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.statistics h2 {
-  font-size: 1.5rem;
-  color: #1a1a1a;
-  margin: 0 0 20px 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 15px;
-  background: #f0f4f8;
-  border-radius: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.stat-item h4 {
-  font-size: 0.95rem;
-  color: #666;
-  margin: 0 0 10px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #0056b3;
-  margin: 0;
-}
-
-/* 7. КОНТАКТНАЯ ИНФОРМАЦИЯ */
-.contacts-info {
-  flex: 0 0 350px;
-  padding: 40px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  height: fit-content;
-  position: sticky;
-  top: 120px;
-}
-
-.contacts-info h3 {
-  font-size: 1.5rem;
-  color: #1a1a1a;
-  margin: 0 0 25px 0;
-  border-bottom: 3px solid #0056b3;
-  padding-bottom: 10px;
-}
-
-.contact-block {
-  margin-bottom: 25px;
-}
-
-.contact-block h4 {
-  font-size: 0.95rem;
-  color: #333;
-  margin: 0 0 8px 0;
+.navbar ul li a.nav-active {
+  color: var(--color-primary);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
-.contact-block p {
-  color: #555;
-  margin: 0;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.contact-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.contact-links ul li a {
-  display: inline-block;
-  color: #0056b3;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-  padding: 8px 0;
-  border-bottom: 2px solid transparent;
-}
-
-.contact-links ul li a:hover {
-  border-bottom: 2px solid #0056b3;
-  color: #003a82;
-}
-
-/* 8. ОТЗЫВЫ СТУДЕНТОВ */
-.students {
-  padding: 2rem 4rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.students h1 {
-  margin-bottom: 0.4rem;
-}
-
-.students > p {
-  margin-bottom: 2.5rem;
-  color: #555;
-}
-
-.review {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  margin-bottom: 3.5rem;
-}
-
-.review.reverse {
-  flex-direction: row-reverse;
-}
-
-/* ── ФОТО: круг + эмодзи вокруг ── */
-.photo-frame {
-  position: relative;
-  flex-shrink: 0;
-  width: 360px;
-  height: 360px;
-}
-
-.photo-frame img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* эмодзи по 8 точкам вокруг круга */
-.photo-emojis {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.pe {
-  position: absolute;
-  font-size: 22px;
-  line-height: 1;
-}
-
-.pe-tl { top: 18px;  left: 18px; }
-.pe-tc { top: 0px;   left: 50%; transform: translateX(-50%); }
-.pe-tr { top: 18px;  right: 18px; }
-.pe-ml { top: 50%;   left: 0px;  transform: translateY(-50%); }
-.pe-mr { top: 50%;   right: 0px; transform: translateY(-50%); }
-.pe-bl { bottom: 18px; left: 18px; }
-.pe-bc { bottom: 0px;  left: 50%; transform: translateX(-50%); }
-.pe-br { bottom: 18px; right: 18px; }
-
-/* ── ЦИТАТА: стеклянный блок + эмодзи ── */
-.quote-frame {
-  position: relative;
-  flex: 1;
-  padding: 2rem 2rem 1.75rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.3);
-  
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 20px rgba(0, 86, 179, 0.1);
-}
-
-.quote-emojis {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: 20px;
-}
-
-.qe {
-  position: absolute;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.qe-tl { top: -11px;  left: 20px; }
-.qe-tc { top: -11px;  left: 50%; transform: translateX(-50%); }
-.qe-tr { top: -11px;  right: 20px; }
-.qe-bl { bottom: -11px; left: 20px; }
-.qe-bc { bottom: -11px; left: 50%; transform: translateX(-50%); }
-.qe-br { bottom: -11px; right: 20px; }
-
-.quote-frame blockquote {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.7;
-  border-left: 3px solid #4a90d9;
-  padding-left: 1.25rem;
-  color: #1a1a1a;
-}
-
-.quote-frame blockquote cite {
-  display: block;
-  margin-top: 10px;
-  font-style: normal;
-  font-size: 13px;
-  color: #888;
-}
-
-
-/* =============================================
-   9. СЕКЦИЯ: ФОРМА ЗАЯВКИ
-   ============================================= */
-
-.application-section {
-  padding: 80px 50px;
-  background: linear-gradient(135deg, #eef2f7 0%, #dce6f5 100%);
-}
-
-.application-container {
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.application-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.application-header h1 {
-  font-size: 2.5rem;
-  color: #1a1a1a;
-  margin: 0 0 15px 0;
-}
-
-.application-header p {
-  font-size: 1.05rem;
-  color: #555;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.application-form {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 50px;
-  box-shadow: 0 10px 40px rgba(0, 86, 179, 0.1);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 22px;
-}
-
-.form-group label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  margin-bottom: 8px;
-}
-
-.required {
-  color: #0056b3;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  font-family: "Prata", serif;
-  font-size: 0.95rem;
-  color: #1a1a1a;
-  background: #f7f9fc;
-  border: 1.5px solid #d9e3f0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  outline: none;
-  transition: border-color 0.25s, box-shadow 0.25s;
-  width: 100%;
-  box-sizing: border-box;
-  resize: vertical;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #aab4c0;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #0056b3;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
-}
-
-.form-group select {
-  -webkit-appearance: none;
-   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%230056b3' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  padding-right: 40px;
-  cursor: pointer;
-}
-
-.form-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.form-note {
-  font-size: 0.8rem;
-  color: #999;
-  margin: 0;
-  line-height: 1.5;
-  flex: 1;
-  min-width: 200px;
-}
-
-.submit-btn {
-  font-family: "Prata", serif;
-  font-size: 1rem;
-  color: #fff;
-  background: #0056b3;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 32px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-  white-space: nowrap;
-}
-
-.submit-btn:hover {
-  background: #003a82;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
-}
-
-.submit-btn:active {
-  transform: translateY(0);
-}
-
-.submit-btn.loading {
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.btn-icon {
-  font-size: 1.1rem;
-  transition: transform 0.2s;
-}
-
-.submit-btn:hover .btn-icon {
-  transform: translateX(4px);
-}
-
-.success-message {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: #fff;
-  border-radius: 16px;
-  padding: 60px 40px;
-  box-shadow: 0 10px 40px rgba(0, 86, 179, 0.1);
-}
-
-.success-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: #0056b3;
-  color: white;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.success-message h3 {
-  font-size: 1.8rem;
-  color: #1a1a1a;
-  margin: 0 0 12px 0;
-}
-
-.success-message p {
-  font-size: 1rem;
-  color: #666;
-  margin: 0;
-  line-height: 1.6;
-}
-
-
-/* =============================================
-   10. ФУТЕР
-   ============================================= */
-
-footer {
-  background: #111827;
-  color: #cdd5e0;
-}
-
-.footer-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  padding: 60px 50px 40px;
+.news-page {
+  min-height: 80vh;
   max-width: 1200px;
   margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-logo {
-  height: 55px;
-  width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
-}
-
-.footer-tagline {
-  font-size: 0.95rem;
-  color: #e2e8f0;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.footer-address {
-  font-size: 0.85rem;
-  color: #8a9ab0;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.footer-links h4 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #ffffff;
-  margin: 0 0 18px 0;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-links ul li a {
-  text-decoration: none;
-  color: #8a9ab0;
-  font-size: 0.9rem;
-  transition: color 0.25s;
-}
-
-.footer-links ul li a:hover {
-  color: #ffffff;
-}
-
-.footer-bottom {
-  border-top: 1px solid #1f2d3d;
-  padding: 20px 50px;
-  text-align: center;
-}
-
-.footer-bottom p {
-  font-size: 0.8rem;
-  color: #566474;
-  margin: 0;
-}
-
-
-/* =============================================
-   11. RESPONSIVE — планшеты (до 1024px)
-   ============================================= */
-
-@media (max-width: 1024px) {
-  .hero-section {
-    flex-direction: column;
-    padding: 40px 30px;
-  }
-
-  .contacts-info {
-    position: relative;
-    top: auto;
-    flex: 1;
-    max-width: 100%;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .application-section {
-    padding: 60px 30px;
-  }
-
-  .application-form {
-    padding: 40px 35px;
-  }
-
-  .footer-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-    padding: 50px 30px 35px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .students {
-    padding: 2rem 2rem;
-  }
-}
-
-
-/* =============================================
-   12. RESPONSIVE — мобильные (до 768px)
-   ============================================= */
-
-@media (max-width: 768px) {
-  header {
-    padding: 10px 20px;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .navbar ul {
-    gap: 15px;
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-section {
-    margin-top: 180px;
-    padding: 30px 20px;
-    gap: 20px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contacts-info {
-    padding: 25px;
-  }
-
-  .stat-number {
-    font-size: 2rem;
-  }
-
-  .students {
-    padding: 2rem 1.5rem;
-  }
-
-  .review,
-  .review.reverse {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2.5rem;
-  }
-
-  .photo-frame {
-    width: 260px;
-    height: 260px;
-  }
-
-  .photo-frame img {
-    width: 210px;
-    height: 210px;
-  }
-
-  .pe { font-size: 18px; }
-
-  .quote-frame {
-    width: 100%;
-  }
-
-  .quote-frame blockquote {
-    border-left: none;
-    border-top: 3px solid #4a90d9;
-    padding-left: 0;
-    padding-top: 1rem;
-    font-size: 15px;
-  }
-
-  .application-section {
-    padding: 50px 20px;
-  }
-
-  .application-header h1 {
-    font-size: 1.8rem;
-  }
-
-  .application-form {
-    padding: 30px 22px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .form-footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .submit-btn {
-    justify-content: center;
-    width: 100%;
-    padding: 16px;
-  }
-
-  .form-note {
-    text-align: center;
-  }
-
-  .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 20px 30px;
-  }
-
-  .footer-brand {
-    grid-column: auto;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-links {
-    text-align: center;
-  }
-
-  .footer-links ul {
-    align-items: center;
-  }
-
-  .footer-bottom {
-    padding: 18px 20px;
-  }
-}
-
-
-/* =============================================
-   13. RESPONSIVE — маленькие телефоны (до 420px)
-   ============================================= */
-
-@media (max-width: 420px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .application-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .navbar ul {
-    gap: 10px;
-    font-size: 0.8rem;
-  }
-
-  .stat-number {
-    font-size: 1.8rem;
-  }
-}
-
-/* СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ СПЕЦИАЛЬНОСТЕЙ */
-
-.specialties-page {
-    padding: 140px 20px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.page-header h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
-.specialties-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-/* Карточка специальности в стиле Apple Glass */
-.spec-card {
-    background: rgba(255, 255, 255, 0.5);
-   
-    -webkit-backdrop-filter: blur(20px);
-     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 30px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.spec-card:hover {
-    transform: translateY(-10px);
-    background: white;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-}
-
-.spec-icon {
-    font-size: 2.5rem;
-}
-
-.spec-code {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #86868b;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.spec-card h3 {
-    font-size: 1.5rem;
-    margin: 5px 0;
-    line-height: 1.2;
-}
-
-.qualification {
-    color: #0071e3;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.duration-badge {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.duration-badge span {
-    font-size: 0.9rem;
-    color: #555;
-    background: rgba(0, 0, 0, 0.03);
-    padding: 6px 12px;
-    border-radius: 10px;
-    width: fit-content;
-}
-
-/* Акцентная карточка (например, программирование) */
-.spec-card.featured {
-    border: 1px solid rgba(0, 113, 227, 0.3);
-} 
-
-
-/* =============================================
-   NEWS.CSS — дополнение к style.css
-   Страница новостей + Админ панель
-   ============================================= */
-
-/* Active nav link */
-.nav-active {
-    color: #0056b3 !important;
-    font-weight: 600 !important;
-}
-
-/* ── СТРАНИЦА НОВОСТЕЙ ── */
-.news-page {
-    padding: 140px 50px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 80vh;
+  padding: 140px 50px 80px;
 }
 
 .news-page-header {
-    text-align: center;
-    margin-bottom: 60px;
+  margin-bottom: 60px;
+  text-align: center;
 }
 
 .news-eyebrow {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #0056b3;
-    margin: 0 0 12px 0;
+  margin: 0 0 12px;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .news-page-header h1 {
-    font-family: 'Prata', serif;
-    font-size: 4rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    margin: 0 0 16px 0;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+  margin: 0 0 16px;
+  color: var(--color-heading);
+  font-family: "Prata", serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .news-subtitle {
-    font-size: 1.1rem;
-    color: #86868b;
-    margin: 0;
+  margin: 0;
+  color: #86868b;
+  font-size: 1.1rem;
 }
 
-/* ── ФИЛЬТРЫ ── */
 .news-filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 50px;
 }
 
 .filter-btn {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #555;
-    background: rgba(255,255,255,0.6);
-    border: 1.5px solid rgba(0,0,0,0.08);
-    border-radius: 50px;
-    padding: 8px 22px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+  padding: 8px 22px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
-.filter-btn:hover {
-    background: rgba(255,255,255,0.9);
-    border-color: rgba(0,86,179,0.2);
-    color: #0056b3;
+.filter-btn:hover,
+.filter-btn:focus-visible {
+  color: var(--color-primary);
+  border-color: rgba(0, 86, 179, 0.2);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .filter-btn.active {
-    background: #0056b3;
-    border-color: #0056b3;
-    color: #fff;
+  color: #fff;
+  border-color: var(--color-primary);
+  background: var(--color-primary);
 }
 
-/* ── СЕТКА НОВОСТЕЙ ── */
 .news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
-/* ── КАРТОЧКА НОВОСТИ ── */
 .news-card {
-    background: rgba(255, 255, 255, 0.6);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 24px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    animation: cardIn 0.4s ease both;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-2xl);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  animation: card-in 0.4s ease both;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-@keyframes cardIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+.news-card:hover,
+.news-card:focus-within {
+  transform: translateY(-8px);
+  border-color: rgba(0, 86, 179, 0.15);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 50px rgba(0, 86, 179, 0.12);
 }
 
-.news-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 20px 50px rgba(0,86,179,0.12);
-    border-color: rgba(0,86,179,0.15);
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Медиа превью в карточке */
 .card-media {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #eef2f7, #dce6f5);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 200px;
+  overflow: hidden;
+  background: var(--gradient-form);
+}
+
+.card-media img,
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
-.news-card:hover .card-media img {
-    transform: scale(1.04);
-}
-
-.card-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.news-card:hover .card-media img,
+.news-card:focus-within .card-media img {
+  transform: scale(1.04);
 }
 
 .card-media-placeholder {
-    font-size: 3rem;
-    opacity: 0.3;
+  opacity: 0.3;
+  font-size: 3rem;
 }
 
-/* Тело карточки */
 .card-body {
-    padding: 24px 26px 26px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 26px 26px;
 }
 
 .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.card-category,
+.modal-category {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(0, 86, 179, 0.08);
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .card-category {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #0056b3;
-    background: rgba(0,86,179,0.08);
-    padding: 3px 10px;
-    border-radius: 50px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+.card-date,
+.modal-date {
+  color: #aaa;
+  font-size: 0.8rem;
 }
 
 .card-date {
-    font-size: 0.78rem;
-    color: #aaa;
-}
-
-.card-title {
-    font-family: 'Prata', serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    margin: 0;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-}
-
-.card-excerpt {
-    font-size: 0.88rem;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
-    display: -webkit-box; 
-
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.card-read-more {
-    font-size: 0.82rem;
-    color: #0056b3;
-    font-weight: 500;
-    margin-top: auto;
-    padding-top: 4px;
-}
-
-/* ── ПУСТОЕ СОСТОЯНИЕ ── */
-.news-empty {
-    text-align: center;
-    padding: 80px 20px;
-    color: #aaa;
-}
-
-.empty-icon {
-    font-size: 4rem;
-    margin-bottom: 16px;
-}
-
-.news-empty p {
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-/* ── МОДАЛЬНЫЕ ОКНА ── */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    z-index: 2000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.modal-overlay.open {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-card {
-    /* ... ваши остальные стили (background, radius и т.д.) ... */
-    
-    overflow-y: auto;
-
-    /* 1. Современный стандарт (Firefox 64+, Chrome 121+, Edge 121+) */
-    scrollbar-width: none;
-
-    /* 2. Для старых версий Internet Explorer и Edge */
-    -ms-overflow-style: none;
-}
-
-/* 3. Для Safari (всех версий), iOS и старых Chrome < 121 */
-/* Это отдельный блок, он ОБЯЗАТЕЛЕН для Safari */
-.modal-card::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
-}
-/* 3. Для Safari, старых Chrome и браузеров на движке WebKit */
-.modal-card::-webkit-scrollbar {
-    display: none;
-}
-
-.modal-card::-webkit-scrollbar { display: none; }
-
-@keyframes modalIn {
-    from { opacity: 0; transform: scale(0.9) translateY(20px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.modal-close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0,0,0,0.06);
-    color: #555;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-    z-index: 10;
-    line-height: 1;
-}
-
-.modal-close:hover {
-    background: rgba(0,0,0,0.12);
-}
-
-/* Медиа в модальном окне */
-.modal-media {
-    width: 100%;
-    max-height: 380px;
-    overflow: hidden;
-    border-radius: 28px 28px 0 0;
-    background: linear-gradient(135deg, #eef2f7, #dce6f5);
-}
-
-.modal-media:empty {
-    display: none;
-}
-
-.modal-media img {
-    width: 100%;
-    height: 100%;
-    max-height: 380px;
-    object-fit: cover;
-    display: block;
-}
-
-.modal-media video {
-    width: 100%;
-    max-height: 380px;
-    display: block;
-}
-
-/* Тело модального окна */
-.modal-body {
-    padding: 32px 36px 40px;
-}
-
-.modal-category {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #0056b3;
-    background: rgba(0,86,179,0.08);
-    padding: 4px 12px;
-    border-radius: 50px;
-    display: inline-block;
-    margin-bottom: 6px;
+  font-size: 0.78rem;
 }
 
 .modal-date {
-    font-size: 0.8rem;
-    color: #aaa;
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+.card-title {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: "Prata", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.card-excerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-muted-2);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.card-read-more {
+  margin-top: auto;
+  padding-top: 4px;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.news-empty {
+  padding: 80px 20px;
+  color: #aaa;
+  text-align: center;
+}
+
+.empty-icon {
+  margin-bottom: 16px;
+  font-size: 4rem;
+}
+
+.news-empty p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-card {
+  position: relative;
+  width: min(100%, 760px);
+  max-height: min(90vh, 820px);
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  animation: modal-in 0.28s ease both;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modal-card::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.modal-media {
+  width: 100%;
+  max-height: 380px;
+  overflow: hidden;
+  border-radius: 28px 28px 0 0;
+  background: var(--gradient-form);
+}
+
+.modal-media:empty {
+  display: none;
+}
+
+.modal-media img,
+.modal-media video {
+  display: block;
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 32px 36px 40px;
 }
 
 .modal-title {
-    font-family: 'Prata', serif;
-    font-size: 1.9rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    margin: 16px 0 20px 0;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+  margin: 16px 0 20px;
+  color: var(--color-heading);
+  font-family: "Prata", serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 .modal-text {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.75;
-    white-space: pre-wrap;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
 }
 
-/* ── ФОРМА ДОБАВЛЕНИЯ ── */
 .modal-form-card {
-    max-width: 500px; 
-    max-height: 500px;
+  width: min(100%, 500px);
+  max-height: min(90vh, 720px);
 }
 
 .admin-form-title {
-    font-family: 'Prata', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    margin: 0 0 28px 0;
-    padding: 32px 36px 0;
+  margin: 0 0 28px;
+  padding: 32px 36px 0;
+  color: var(--color-heading);
+  font-family: "Prata", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 .admin-form {
-    padding: 0 36px 36px;
+  padding: 0 36px 36px;
 }
 
 .admin-form .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-/* Upload area */
 .media-upload-area {
-    border: 2px dashed #d9e3f0;
-    border-radius: 14px;
-    transition: border-color 0.25s, background 0.25s;
-    cursor: pointer;
-    overflow: hidden;
+  overflow: hidden;
+  border: 2px dashed var(--color-form-border);
+  border-radius: 14px;
+  cursor: pointer;
 }
 
 .media-upload-area:hover,
+.media-upload-area:focus-within,
 .media-upload-area.drag-over {
-    border-color: #0056b3;
-    background: rgba(0,86,179,0.03);
+  border-color: var(--color-primary);
+  background: rgba(0, 86, 179, 0.03);
 }
 
 .upload-placeholder {
-    padding: 30px;
-    text-align: center;
-    pointer-events: none;
+  padding: 30px;
+  text-align: center;
+  pointer-events: none;
 }
 
 .upload-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
 }
 
 .upload-placeholder p {
-    margin: 0 0 4px 0;
-    color: #555;
-    font-size: 0.9rem;
+  margin: 0 0 4px;
+  color: var(--color-muted);
+  font-size: 0.9rem;
 }
 
 .upload-placeholder small {
-    color: #aaa;
-    font-size: 0.78rem;
+  color: #aaa;
+  font-size: 0.78rem;
 }
 
 .media-preview {
-    position: relative;
+  position: relative;
 }
 
 .media-preview img,
 .media-preview video {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
 }
 
 .media-preview-remove {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    transition: background 0.2s;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.media-preview-remove:hover {
-    background: rgba(220,30,30,0.75);
+.media-preview-remove:hover,
+.media-preview-remove:focus-visible {
+  background: rgba(220, 30, 30, 0.75);
 }
 
-/* Кнопки формы */
 .admin-form-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .admin-delete-btn {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    color: #cc2200;
-    background: none;
-    border: 1.5px solid rgba(204,34,0,0.25);
-    border-radius: 8px;
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: all 0.2s;
+  padding: 12px 20px;
+  border: 1.5px solid rgba(204, 34, 0, 0.25);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: #cc2200;
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
 }
 
-.admin-delete-btn:hover {
-    background: rgba(204,34,0,0.06);
-    border-color: #cc2200;
+.admin-delete-btn:hover,
+.admin-delete-btn:focus-visible {
+  border-color: #cc2200;
+  background: rgba(204, 34, 0, 0.06);
 }
 
-/* ── КНОПКА РЕДАКТИРОВАНИЯ НА КАРТОЧКЕ ── */
 .card-edit-btn {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.85);
-    border: none;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.2s, background 0.2s;
-    z-index: 5;
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
-.news-card:hover .card-edit-btn {
-    opacity: 1;
+.news-card:hover .card-edit-btn,
+.news-card:focus-within .card-edit-btn {
+  opacity: 1;
 }
 
-.card-edit-btn:hover {
-    background: #fff;
+.card-edit-btn:hover,
+.card-edit-btn:focus-visible {
+  background: #fff;
 }
 
-/* Карточка-обёртка должна иметь position:relative */
-.news-card {
-    position: relative;
-}
-
-/* ── FAB КНОПКА ДОБАВЛЕНИЯ ── */
 .admin-fab {
-    position: fixed;
-    bottom: 36px;
-    right: 36px;
-    z-index: 1500;
+  display: none;
+  position: fixed;
+  right: 36px;
+  bottom: 36px;
+  z-index: 1500;
 }
 
 .fab-btn {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: #0056b3;
-    color: #fff;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    box-shadow: 0 8px 28px rgba(0,86,179,0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 8px 28px rgba(0, 86, 179, 0.35);
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.fab-btn:hover {
-    background: #003a82;
-    transform: scale(1.08);
-    box-shadow: 0 12px 36px rgba(0,86,179,0.45);
+.fab-btn:hover,
+.fab-btn:focus-visible {
+  background: var(--color-primary-dark);
+  transform: scale(1.08);
+  box-shadow: 0 12px 36px rgba(0, 86, 179, 0.45);
 }
 
-/* ── ТОСТ УВЕДОМЛЕНИЕ ── */
 .toast {
-    position: fixed;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: #1a1a1a;
-    color: #fff;
-    font-size: 0.88rem;
-    padding: 12px 24px;
-    border-radius: 50px;
-    z-index: 3000;
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
-    opacity: 0;
-    white-space: nowrap;
+  position: fixed;
+  left: 50%;
+  bottom: 36px;
+  z-index: 3000;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) translateY(80px);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
 }
 
 .toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
-/* ── КАТЕГОРИИ label ── */
-.category-label-announcement { color: #0071e3; background: rgba(0,113,227,0.08); }
-.category-label-achievement   { color: #1a7f37; background: rgba(26,127,55,0.08); }
-.category-label-event         { color: #9b59b6; background: rgba(155,89,182,0.08); }
+.category-label-announcement {
+  color: #0071e3;
+  background: rgba(0, 113, 227, 0.08);
+}
 
-/* =============================================
-   RESPONSIVE — НОВОСТИ
-   ============================================= */
+.category-label-achievement {
+  color: #1a7f37;
+  background: rgba(26, 127, 55, 0.08);
+}
+
+.category-label-event {
+  color: #9b59b6;
+  background: rgba(155, 89, 182, 0.08);
+}
 
 @media (max-width: 1024px) {
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .news-page {
-        padding: 120px 30px 60px;
-    }
+  .news-page {
+    padding: 120px 30px 60px;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
-    .news-page {
-        padding: 120px 20px 60px;
-    }
+  .news-page {
+    padding: 120px 20px 60px;
+  }
 
-    .news-page-header h1 {
-        font-size: 2.8rem;
-    }
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 
-    .news-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
+  .card-media {
+    height: 180px;
+  }
 
-    .card-media {
-        height: 180px;
-    }
+  .modal-card {
+    border-radius: 20px;
+  }
 
-    .modal-body {
-        padding: 24px 22px 32px;
-    }
+  .modal-body {
+    padding: 24px 22px 32px;
+  }
 
-    .modal-title {
-        font-size: 1.5rem;
-    }
+  .modal-title {
+    font-size: 1.5rem;
+  }
 
-    .admin-form {
-        padding: 0 22px 28px;
-    }
+  .admin-form-title {
+    padding: 24px 22px 0;
+    font-size: 1.3rem;
+  }
 
-    .admin-form-title {
-        padding: 24px 22px 0;
-        font-size: 1.3rem;
-    }
+  .admin-form {
+    padding: 0 22px 28px;
+  }
 
-    .admin-fab {
-        bottom: 24px;
-        right: 24px;
-    }
+  .admin-fab {
+  display: none;
+right: 24px;
+    bottom: 24px;
+  }
 
-    .admin-form-footer {
-        flex-direction: column-reverse;
-        align-items: stretch;
-    }
+  .admin-form-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
 
-    .admin-delete-btn,
-    .admin-form-footer .submit-btn {
-        width: 100%;
-        justify-content: center;
-    }
+  .admin-delete-btn,
+  .admin-form-footer .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 420px) {
-    .news-page-header h1 {
-        font-size: 2.2rem;
-    }
+  .news-filters {
+    gap: 8px;
+  }
 
-    .news-filters {
-        gap: 8px;
-    }
+  .filter-btn {
+    padding: 7px 16px;
+    font-size: 0.8rem;
+  }
 
-    .filter-btn {
-        font-size: 0.8rem;
-        padding: 7px 16px;
-    }
-
-    .modal-card {
-        border-radius: 20px;
-    }
+  .toast {
+    max-width: calc(100vw - 32px);
+    white-space: normal;
+    text-align: center;
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .news-card,
+  .modal-card {
+    animation: none;
+  }
+
+  .news-card:hover,
+  .news-card:focus-within,
+  .fab-btn:hover,
+  .fab-btn:focus-visible {
+    transform: none;
+  }
+}
+
