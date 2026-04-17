@@ -13,13 +13,22 @@
 <header>
     <img src="/img/logo.png" alt="Логотип" class="logo">
     <nav class="navbar">
-        <ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <ul id="navLinks">
             <li><a href="abiturients.html">Абитуриентам</a></li>
             <li><a href="speciality.html">Специальности</a></li> 
-            <li><a href="news.html">Новости</a></li> 
-            <li><a href="#">Дополнительно</a></li>
-        </ul>
+            <li><a href="news.html">Новости</a></li>   </ul>
+           <div class="dropdown">
+<button id="dropdown-btn" aria-expanded="false" aria-controls="extraMenu">Дополнительно</button>
+          <div class="dropdown-content" id="extraMenu">
+          <a href="pck.html">Состав ПЦК</a>
+          <a href="campuses.html">Корпуса</a>
+          <a href="schedule.html">Расписание</a>
+          </div>
+           </div>     
+       
     </nav>
+    <button id="themeToggle" aria-label="Переключить тему">Тёмная тема</button>
 </header>
  
 <section class="hero-section">
@@ -209,10 +218,10 @@
     <div class="footer-links">
       <h4>Навигация</h4>
       <ul>
-        <li><a href="#">Абитуриентам</a></li>
-        <li><a href="#">Специальности</a></li>
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Дополнительно</a></li>
+        <li><a href="abiturients.html">Абитуриентам</a></li>
+        <li><a href="speciality.html">Специальности</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="pck.html">Состав ПЦК</a></li>
       </ul>
     </div>
     <div class="footer-links">
@@ -227,8 +236,8 @@
       <h4>Подать заявку</h4>
       <ul>
         <li><a href="#application">Форма заявки</a></li>
-        <li><a href="#">Документы для поступления</a></li>
-        <li><a href="#">Расписание приёма</a></li>
+        <li><a href="campuses.html">Корпуса</a></li>
+        <li><a href="schedule.html">Расписание</a></li>
       </ul>
     </div>
   </div>
@@ -236,21 +245,6 @@
     <p>© 2025 Колледж ИГУ им. Касыма Тыныстанова. Все права защищены.</p>
   </div>
 </footer>
- 
-<script>
-  const form = document.getElementById('applicationForm');
-  const successMessage = document.getElementById('successMessage');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('.submit-btn');
-    btn.classList.add('loading');
-    btn.querySelector('.btn-text').textContent = 'Отправляем...';
-    setTimeout(() => {
-      form.style.display = 'none';
-      successMessage.style.display = 'flex';
-    }, 1500);
-  });
-</script>
- 
+ <script src="script.js"></script> 
 </body>
 </html> 

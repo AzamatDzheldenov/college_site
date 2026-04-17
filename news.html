@@ -15,13 +15,22 @@
     <header>
         <img src="/img/logo.png" alt="Логотип" class="logo">
         <nav class="navbar">
-            <ul>
-                <li><a href="#">Абитуриентам</a></li>
+            <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+            <ul id="navLinks">
+                <li><a href="abiturients.html">Абитуриентам</a></li>
                 <li><a href="speciality.html">Специальности</a></li>
                 <li><a href="news.html" class="nav-active">Новости</a></li>
-                <li><a href="#">Дополнительно</a></li>
             </ul>
+            <div class="dropdown">
+                <button id="dropdown-btn" aria-expanded="false" aria-controls="extraMenu">Дополнительно</button>
+                <div class="dropdown-content" id="extraMenu">
+                    <a href="pck.html">Состав ПЦК</a>
+                    <a href="campuses.html">Корпуса</a>
+                    <a href="schedule.html">Расписание</a>
+                </div>
+            </div>
         </nav>
+        <button id="themeToggle" aria-label="Переключить тему">Тёмная тема</button>
     </header>
 
     <!-- ========== СТРАНИЦА НОВОСТЕЙ ========== -->
@@ -46,8 +55,10 @@
             <!-- Новости рендерятся через JS -->
         </div>
 
+        <div class="news-pagination" id="newsPagination" aria-label="Навигация по страницам новостей"></div>
+
         <!-- Пустое состояние -->
-        <div class="news-empty" id="newsEmpty"">
+        <div class="news-empty" id="newsEmpty">
             <div class="empty-icon">📭</div>
             <p>Новостей пока нет</p>
         </div>
@@ -110,7 +121,7 @@
                 </div>
 
                 <div class="admin-form-footer">
-                    <button class="admin-delete-btn" id="deleteBtn"">Удалить новость</button>
+                    <button class="admin-delete-btn" id="deleteBtn">Удалить новость</button>
                     <button class="submit-btn" id="saveBtn">
                         Сохранить <span class="btn-icon">→</span>
                     </button>
@@ -119,26 +130,29 @@
         </div>
     </div>
 
-    <!-- ========== СКРЫТАЯ КНОПКА ADMIN ========== -->
-    <!-- Доступ: тройной клик на логотип в футере -->
-    <div class="admin-fab" id="adminFab"">
+    <div class="editor-access">
+        <button class="editor-access-btn" id="editorAccessBtn">Вход для редакции</button>
+        <button class="editor-access-btn is-logout" id="editorLogoutBtn">Выйти из редакции</button>
+    </div>
+
+    <div class="admin-fab" id="adminFab">
         <button class="fab-btn" id="addNewsBtn" title="Добавить новость">+</button>
     </div>
 
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
-                <img src="/img/logo.png" alt="Логотип" class="footer-logo" id="footerLogoAdmin">
+                <img src="/img/logo.png" alt="Логотип" class="footer-logo">
                 <p class="footer-tagline">Колледж ИГУ им. Касыма Тыныстанова</p>
                 <p class="footer-address">г. Каракол, ул. Абдрахманова, 67</p>
             </div>
             <div class="footer-links">
                 <h4>Навигация</h4>
                 <ul>
-                    <li><a href="#">Абитуриентам</a></li>
-                    <li><a href="#">Специальности</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Дополнительно</a></li>
+                    <li><a href="abiturients.html">Абитуриентам</a></li>
+                    <li><a href="speciality.html">Специальности</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="pck.html">Состав ПЦК</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -152,9 +166,9 @@
             <div class="footer-links">
                 <h4>Подать заявку</h4>
                 <ul>
-                    <li><a href="#application">Форма заявки</a></li>
-                    <li><a href="#">Документы для поступления</a></li>
-                    <li><a href="#">Расписание приёма</a></li>
+                    <li><a href="index.html#application">Форма заявки</a></li>
+                    <li><a href="campuses.html">Корпуса</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
                 </ul>
             </div>
         </div>
@@ -165,6 +179,7 @@
 
 </main>
 
+<script src="script.js"></script>
 <script src="news.js"></script>
 </body>
 </html>

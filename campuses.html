@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корпуса | ИГУ им. Касыма Тыныстанова</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="/img/logo.png" alt="Логотип" class="logo">
+    <nav class="navbar">
+      <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+      <ul id="navLinks">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="abiturients.html">Абитуриентам</a></li>
+        <li><a href="speciality.html">Специальности</a></li>
+        <li><a href="news.html">Новости</a></li>
+      </ul>
+      <div class="dropdown">
+        <button id="dropdown-btn" aria-expanded="false" aria-controls="extraMenu">Дополнительно</button>
+        <div class="dropdown-content" id="extraMenu">
+          <a href="pck.html">Состав ПЦК</a>
+          <a href="campuses.html">Корпуса</a>
+          <a href="schedule.html">Расписание</a>
+        </div>
+      </div>
+    </nav>
+    <button id="themeToggle" aria-label="Переключить тему">Тёмная тема</button>
+  </header>
+
+  <main class="glass-page">
+    <section class="page-header">
+      <h1>Корпуса колледжа</h1>
+      <p>Учебные корпуса оснащены современными аудиториями, лабораториями и пространствами для проектной работы.</p>
+    </section>
+
+    <section class="glass-grid">
+      <article class="glass-card">
+        <h3>Корпус A</h3>
+        <p>Адрес: ул. Абдрахманова, 67</p>
+        <p>Кафедры IT, экономики и права, актовый зал и библиотека.</p>
+      </article>
+      <article class="glass-card">
+        <h3>Корпус B</h3>
+        <p>Адрес: ул. Тыныстанова, 24</p>
+        <p>Медицинские кабинеты, лаборатории и симуляционные классы.</p>
+      </article>
+      <article class="glass-card">
+        <h3>Спортивный комплекс</h3>
+        <p>Адрес: ул. Карасаева, 11</p>
+        <p>Спортивный зал, тренажерная зона и площадки для секций.</p>
+      </article>
+      <article class="glass-card">
+        <h3>Режим работы</h3>
+        <ul>
+          <li>Пн-Пт: 08:00 - 18:00</li>
+          <li>Сб: 08:00 - 14:00</li>
+          <li>Вс: выходной</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

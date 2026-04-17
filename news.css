@@ -81,6 +81,38 @@
   gap: 24px;
 }
 
+.news-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 34px 0 0;
+}
+
+.page-btn {
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--color-heading);
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.page-btn:hover,
+.page-btn:focus-visible {
+  border-color: rgba(0, 113, 227, 0.4);
+  color: var(--color-primary);
+}
+
+.page-btn.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
 .news-card {
   position: relative;
   display: flex;
@@ -519,6 +551,39 @@
   z-index: 1500;
 }
 
+.editor-access {
+  position: fixed;
+  right: 36px;
+  bottom: 108px;
+  z-index: 1500;
+}
+
+.editor-access-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.editor-access-btn:hover,
+.editor-access-btn:focus-visible {
+  border-color: rgba(0, 113, 227, 0.45);
+  color: var(--color-primary);
+}
+
+.editor-access-btn.is-logout {
+  display: none;
+}
+
 .fab-btn {
   display: flex;
   align-items: center;
@@ -592,7 +657,7 @@
 
 @media (max-width: 768px) {
   .news-page {
-    padding: 120px 20px 60px;
+    padding: 170px 20px 60px;
   }
 
   .news-grid {
@@ -626,9 +691,14 @@
   }
 
   .admin-fab {
-  display: none;
-right: 24px;
+    display: none;
+    right: 24px;
     bottom: 24px;
+  }
+
+  .editor-access {
+    right: 20px;
+    bottom: 96px;
   }
 
   .admin-form-footer {
