@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости — Колледж ИГУ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="news.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+
+    <header>
+        <img src="/img/logo.png" alt="Логотип" class="logo">
+        <nav class="navbar">
+            <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+            <ul id="navLinks">
+                <li><a href="abiturients.html">Абитуриентам</a></li>
+                <li><a href="speciality.html">Специальности</a></li>
+                <li><a href="news.html" class="nav-active">Новости</a></li>
+            </ul>
+            <div class="dropdown">
+                <button id="dropdown-btn" aria-expanded="false" aria-controls="extraMenu">Дополнительно</button>
+                <div class="dropdown-content" id="extraMenu">
+                    <a href="pck.html">Состав ПЦК</a>
+                    <a href="campuses.html">Корпуса</a>
+                    <a href="schedule.html">Расписание</a>
+                </div>
+            </div>
+        </nav>
+        <button id="themeToggle" aria-label="Переключить тему">Тёмная тема</button>
+    </header>
+
+    <!-- ========== СТРАНИЦА НОВОСТЕЙ ========== -->
+    <section class="news-page">
+
+        <div class="news-page-header">
+            <p class="news-eyebrow">Колледж ИГУ</p>
+            <h1>Новости</h1>
+            <p class="news-subtitle">Актуальные события, достижения и анонсы</p>
+        </div>
+
+        <!-- Фильтр по категориям -->
+        <div class="news-filters">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="announcement">Объявления</button>
+            <button class="filter-btn" data-filter="achievement">Достижения</button>
+            <button class="filter-btn" data-filter="event">События</button>
+        </div>
+
+        <!-- Сетка новостей -->
+        <div class="news-grid" id="newsGrid">
+            <!-- Новости рендерятся через JS -->
+        </div>
+
+        <div class="news-pagination" id="newsPagination" aria-label="Навигация по страницам новостей"></div>
+
+        <!-- Пустое состояние -->
+        <div class="news-empty" id="newsEmpty">
+            <div class="empty-icon">📭</div>
+            <p>Новостей пока нет</p>
+        </div>
+
+    </section>
+
+    <!-- ========== МОДАЛЬНОЕ ОКНО: ПРОСМОТР НОВОСТИ ========== -->
+    <div class="modal-overlay" id="newsModal">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-media" id="modalMedia"></div>
+            <div class="modal-body">
+                <span class="modal-category" id="modalCategory"></span>
+                <span class="modal-date" id="modalDate"></span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-text" id="modalText"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== МОДАЛЬНОЕ ОКНО: ДОБАВИТЬ/РЕДАКТИРОВАТЬ ========== -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal-card modal-form-card">
+            <button class="modal-close" id="adminModalClose">✕</button>
+            <h2 class="admin-form-title" id="adminFormTitle">Добавить новость</h2>
+            <div class="admin-form">
+                <input type="hidden" id="editingId">
+
+                <div class="form-group">
+                    <label>Заголовок <span class="required">*</span></label>
+                    <input type="text" id="inputTitle" placeholder="Введите заголовок новости">
+                </div>
+
+                <div class="form-group">
+
+                    <label for="inputCategory">Категория</label>
+                    <select id="inputCategory">
+                        <option value="announcement">Объявление</option>
+                        <option value="achievement">Достижение</option>
+                        <option value="event">Событие</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Текст новости <span class="required">*</span></label>
+                    <textarea id="inputText" rows="6" placeholder="Полный текст новости..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Медиафайл (фото / видео)</label>
+                    <div class="media-upload-area" id="mediaUploadArea">
+                        <input type="file" id="inputMedia" accept="image/*,video/*" hidden>
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <span class="upload-icon">🖼️</span>
+                            <p>Нажмите или перетащите файл сюда</p>
+                            <small>JPG, PNG, GIF, MP4 — до 50 МБ</small>
+                        </div>
+                        <div class="media-preview" id="mediaPreview"></div>
+                    </div>
+                </div>
+
+                <div class="admin-form-footer">
+                    <button class="admin-delete-btn" id="deleteBtn">Удалить новость</button>
+                    <button class="submit-btn" id="saveBtn">
+                        Сохранить <span class="btn-icon">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="editor-access">
+        <button class="editor-access-btn" id="editorAccessBtn">Вход для редакции</button>
+        <button class="editor-access-btn is-logout" id="editorLogoutBtn">Выйти из редакции</button>
+    </div>
+
+    <div class="admin-fab" id="adminFab">
+        <button class="fab-btn" id="addNewsBtn" title="Добавить новость">+</button>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="/img/logo.png" alt="Логотип" class="footer-logo">
+                <p class="footer-tagline">Колледж ИГУ им. Касыма Тыныстанова</p>
+                <p class="footer-address">г. Каракол, ул. Абдрахманова, 67</p>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="abiturients.html">Абитуриентам</a></li>
+                    <li><a href="speciality.html">Специальности</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="pck.html">Состав ПЦК</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="#">Telegram</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Подать заявку</h4>
+                <ul>
+                    <li><a href="index.html#application">Форма заявки</a></li>
+                    <li><a href="campuses.html">Корпуса</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Колледж ИГУ им. Касыма Тыныстанова. Все права защищены.</p>
+        </div>
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+<script src="news.js"></script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -25,3 +26,8 @@ server/uploads
 *.njsproj
 *.sln
 *.sw?
+=======
+node_modules/
+.env
+data/
+>>>>>>> 8ce1881dbdc4d0adc5ef4722db6a760fe4b4fe6a
