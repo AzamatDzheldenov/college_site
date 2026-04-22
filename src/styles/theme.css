@@ -1,0 +1,33 @@
+:root {
+  color-scheme: light;
+  --color-canvas: 245 245 247;
+  --color-panel: 255 255 255;
+  --color-text: 29 29 31;
+  --color-muted: 86 86 92;
+  --color-line: 218 225 235;
+  --color-accent: 0 86 179;
+  --color-coral: 220 84 64;
+  --color-mint: 74 144 217;
+  --glass-bg: rgba(255, 255, 255, 0.42);
+  --glass-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.62);
+  --shadow-glass: 0 24px 70px rgba(0, 86, 179, 0.12);
+  --shadow-soft: 0 10px 40px rgba(0, 86, 179, 0.1);
+}
+
+:root.dark {
+  color-scheme: dark;
+  --color-canvas: 16 19 26;
+  --color-panel: 28 33 43;
+  --color-text: 245 247 250;
+  --color-muted: 179 188 202;
+  --color-line: 62 73 90;
+  --color-accent: 74 144 217;
+  --color-coral: 255 139 105;
+  --color-mint: 111 181 239;
+  --glass-bg: rgba(28, 33, 43, 0.5);
+  --glass-strong: rgba(34, 40, 52, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --shadow-glass: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --shadow-soft: 0 18px 42px rgba(0, 0, 0, 0.26);
+}
